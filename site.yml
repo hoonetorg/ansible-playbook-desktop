@@ -3,6 +3,8 @@
   become: true
   gather_facts: true
   roles:
+    - role: ansible-role-repo
     - role: ansible-role-disk
     - role: ansible-role-user
     #- role: ansible-role-software
+    - role: ansible-role-btrbk
