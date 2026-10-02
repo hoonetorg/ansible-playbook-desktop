@@ -6,5 +6,6 @@
     - role: ansible-role-repo
     - role: ansible-role-disk
     - role: ansible-role-user
+    - role: ansible-role-syncthing
     #- role: ansible-role-software
     - role: ansible-role-btrbk
