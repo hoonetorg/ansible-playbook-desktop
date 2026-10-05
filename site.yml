@@ -2,6 +2,9 @@
 - hosts: desktop
   become: true
   gather_facts: true
+  # zypper waits up to 5 min for the zypp lock (e.g. held by packagekitd / GNOME Software) instead of failing
+  environment:
+    ZYPP_LOCK_TIMEOUT: "300"
   roles:
     - role: ansible-role-repo
     - role: ansible-role-hardware
