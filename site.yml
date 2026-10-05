@@ -4,6 +4,7 @@
   gather_facts: true
   roles:
     - role: ansible-role-repo
+    - role: ansible-role-hardware
     - role: ansible-role-disk
     - role: ansible-role-user
     - role: ansible-role-syncthing
