@@ -8,5 +8,6 @@
     - role: ansible-role-disk
     - role: ansible-role-user
     - role: ansible-role-syncthing
+    - role: ansible-role-citrix
     #- role: ansible-role-software
     - role: ansible-role-btrbk
