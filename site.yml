@@ -9,6 +9,8 @@
     - role: ansible-role-repo
     - role: ansible-role-hardware
     - role: ansible-role-disk
+    # before ansible-role-user: the packages create group libvirt
+    - role: ansible-role-virt
     - role: ansible-role-user
     - role: ansible-role-syncthing
     - role: ansible-role-citrix
