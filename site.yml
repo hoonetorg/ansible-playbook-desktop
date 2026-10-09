@@ -12,7 +12,9 @@
     # before ansible-role-user: the packages create group libvirt
     - role: ansible-role-virt
     - role: ansible-role-user
+    # after ansible-role-user (homes exist) and ansible-role-virt (firewalld zone libvirt exists)
+    - role: ansible-role-nfsserver
     - role: ansible-role-syncthing
     - role: ansible-role-citrix
-    #- role: ansible-role-software
+    - role: ansible-role-software
     - role: ansible-role-btrbk
