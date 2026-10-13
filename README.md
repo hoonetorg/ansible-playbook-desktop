@@ -2,26 +2,43 @@
 
 Sets up desktop/notebook hosts (group `desktop`) with these roles, in this order:
 
-| role | purpose |
-|------|---------|
-| ansible-role-repo | additional package repositories, distribution non-free repos |
-| ansible-role-hardware | firmware, drivers, power management, hardware quirks, VM guest agents |
-| ansible-role-disk | partitions, LUKS, btrfs filesystems/subvolumes, crypttab/fstab |
-| ansible-role-user | groups, users, home directories |
-| ansible-role-syncthing | syncthing per user, devices/folders via REST API |
-| ansible-role-citrix | Citrix Workspace app (ICAClient), RPM downloaded on the controller |
-| ansible-role-btrbk | btrbk snapshots/backups with own systemd units |
+| role | tag | purpose |
+|------|-----|---------|
+| ansible-role-repo | repo | additional package repositories, distribution non-free repos |
+| ansible-role-hardware | hardware | firmware, drivers, power management, hardware quirks, VM guest agents |
+| ansible-role-disk | disk | partitions, LUKS, btrfs filesystems/subvolumes, crypttab/fstab |
+| ansible-role-virt | virt | KVM/libvirt host with virt-manager, libvirt networks |
+| ansible-role-user | user | groups, users, home directories |
+| ansible-role-nfsserver | nfsserver | NFSv4 server, exports |
+| ansible-role-syncthing | syncthing | syncthing per user, devices/folders via REST API |
+| ansible-role-citrix | citrix | Citrix Workspace app (ICAClient), RPM downloaded on the controller |
+| ansible-role-software | software | packages, browser policies and extensions |
+| ansible-role-ksuite | ksuite | Infomaniak desktop apps kDrive, kChat, kMeet (AppImages in /opt/ksuite) |
+| ansible-role-gnome | gnome | GNOME settings for all users (dconf system defaults and locks) |
+| ansible-role-btrbk | btrbk | btrbk snapshots/backups with own systemd units |
 
-(ansible-role-software is prepared but not enabled yet.)
-
-Each role reads one dict named after it (`repo`, `hardware`, `disk`, `user`, `syncthing`, `citrix`, `btrbk`) from the inventory;
-see the role READMEs.
+Each role reads one dict named after its tag (`repo`, `hardware`, `disk`, …) from the inventory; see the role
+READMEs.
 
 ## Usage
 
 ```bash
 ansible-playbook --diff -i <inventory> -k -K --ask-vault-password site.yml -l <host>
 ```
+
+Only some roles (the tag is on the role in `site.yml`, so all its tasks run, also the one that builds
+`<role>_final`; fact gathering always runs):
+
+```bash
+ansible-playbook ... site.yml -l <host> --tags gnome
+ansible-playbook ... site.yml -l <host> --tags software,gnome
+ansible-playbook ... site.yml -l <host> --skip-tags disk
+ansible-playbook site.yml --list-tags                  # all tags
+ansible-playbook site.yml --tags gnome --list-tasks    # what would run
+```
+
+Roles depend on earlier ones (see the order above, e.g. nfsserver needs user and virt): a new host always gets
+a full run first.
 
 zypper waits up to 5 minutes for the zypp lock (`ZYPP_LOCK_TIMEOUT`, play environment), e.g. while
 packagekitd (GNOME Software) refreshes in the background, instead of failing immediately.
