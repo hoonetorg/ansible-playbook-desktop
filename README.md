@@ -8,6 +8,7 @@ Sets up desktop/notebook hosts (group `desktop`) with these roles, in this order
 | ansible-role-hardware | hardware | firmware, drivers, power management, hardware quirks, VM guest agents |
 | ansible-role-disk | disk | partitions, LUKS, btrfs filesystems/subvolumes, crypttab/fstab |
 | ansible-role-virt | virt | KVM/libvirt host with virt-manager, libvirt networks |
+| ansible-role-network | network | NetworkManager LAN/Wi-Fi profiles, same MAC, firewalld default zone and zone services (the only firewalld writer) |
 | ansible-role-user | user | groups, users, home directories |
 | ansible-role-nfsserver | nfsserver | NFSv4 server, exports |
 | ansible-role-syncthing | syncthing | syncthing per user, devices/folders via REST API |

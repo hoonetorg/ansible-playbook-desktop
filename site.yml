@@ -15,9 +15,13 @@
     # before ansible-role-user: the packages create group libvirt
     - role: ansible-role-virt
       tags: [virt]
+    # after virt (zone libvirt exists): the only firewalld writer - default zone, service lists of the zones
+    # (incl. syncthing, nfs in libvirt), NetworkManager profiles
+    - role: ansible-role-network
+      tags: [network]
     - role: ansible-role-user
       tags: [user]
-    # after ansible-role-user (homes exist) and ansible-role-virt (firewalld zone libvirt exists)
+    # after ansible-role-user (homes exist); firewall rule nfs in zone libvirt: ansible-role-network
     - role: ansible-role-nfsserver
       tags: [nfsserver]
     - role: ansible-role-syncthing
