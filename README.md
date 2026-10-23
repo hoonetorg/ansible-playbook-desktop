@@ -9,6 +9,7 @@ Sets up desktop/notebook hosts (group `desktop`) with these roles, in this order
 | ansible-role-disk | disk | partitions, LUKS, btrfs filesystems/subvolumes, crypttab/fstab |
 | ansible-role-virt | virt | KVM/libvirt host with virt-manager, libvirt networks |
 | ansible-role-network | network | NetworkManager LAN/Wi-Fi profiles, same MAC, firewalld default zone and zone services (the only firewalld writer) |
+| ansible-role-ssh | ssh | SSH host keys from the vault (same keys after a reinstall), /etc/ssh/ssh_known_hosts from the inventory, temporary VMs in ~/.ssh/known_hosts_vms |
 | ansible-role-user | user | groups, users, home directories |
 | ansible-role-nfsserver | nfsserver | NFSv4 server, exports |
 | ansible-role-syncthing | syncthing | syncthing per user, devices/folders via REST API |

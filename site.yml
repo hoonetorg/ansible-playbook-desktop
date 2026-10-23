@@ -19,6 +19,9 @@
     # (incl. syncthing, nfs in libvirt), NetworkManager profiles
     - role: ansible-role-network
       tags: [network]
+    # host keys from the vault, /etc/ssh/ssh_known_hosts from the inventory, temporary VMs in ~/.ssh/known_hosts_vms
+    - role: ansible-role-ssh
+      tags: [ssh]
     - role: ansible-role-user
       tags: [user]
     # after ansible-role-user (homes exist); firewall rule nfs in zone libvirt: ansible-role-network
