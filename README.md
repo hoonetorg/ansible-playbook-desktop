@@ -5,6 +5,7 @@ Sets up desktop/notebook hosts (group `desktop`) with these roles, in this order
 | role | tag | purpose |
 |------|-----|---------|
 | ansible-role-repo | repo | additional package repositories, distribution non-free repos |
+| ansible-role-system | system | system-wide settings: vim never writes viminfo (/etc/vimrc) |
 | ansible-role-hardware | hardware | firmware, drivers, power management, hardware quirks, VM guest agents |
 | ansible-role-disk | disk | partitions, LUKS, btrfs filesystems/subvolumes, crypttab/fstab |
 | ansible-role-virt | virt | KVM/libvirt host with virt-manager, libvirt networks |

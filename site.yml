@@ -8,6 +8,9 @@
   roles:
     - role: ansible-role-repo
       tags: [repo]
+    # system-wide settings: /etc/vimrc without viminfo (before anything is edited with vim)
+    - role: ansible-role-system
+      tags: [system]
     - role: ansible-role-hardware
       tags: [hardware]
     - role: ansible-role-disk
