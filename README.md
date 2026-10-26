@@ -15,7 +15,7 @@ Sets up desktop/notebook hosts (group `desktop`) with these roles, in this order
 | ansible-role-nfsserver | nfsserver | NFSv4 server, exports |
 | ansible-role-syncthing | syncthing | syncthing per user, devices/folders via REST API |
 | ansible-role-citrix | citrix | Citrix Workspace app (ICAClient), RPM downloaded on the controller |
-| ansible-role-software | software | packages, browser policies and extensions |
+| ansible-role-software | software | packages, browser policies and extensions, web apps (sites as app windows in own browser profiles) |
 | ansible-role-ksuite | ksuite | Infomaniak desktop apps kDrive, kChat, kMeet (AppImages in /opt/ksuite) |
 | ansible-role-gnome | gnome | GNOME settings for all users (dconf system defaults and locks) |
 | ansible-role-btrbk | btrbk | btrbk snapshots/backups with own systemd units |
