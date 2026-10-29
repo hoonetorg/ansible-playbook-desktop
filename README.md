@@ -17,6 +17,7 @@ Sets up desktop/notebook hosts (group `desktop`) with these roles, in this order
 | ansible-role-citrix | citrix | Citrix Workspace app (ICAClient), RPM downloaded on the controller |
 | ansible-role-software | software | packages, browser policies and extensions, web apps (sites as app windows in own browser profiles) |
 | ansible-role-appimage | appimage | AppImages for all users: Signal (GPG-checked, menu entry), Infomaniak kDrive, kChat, kMeet (/opt/ksuite, as ansible-role-ksuite did) |
+| ansible-role-mailclient | mailclient | Evolution and/or Thunderbird with the same mail/calendar/contacts accounts for named users (no Trash, all folders) |
 | ansible-role-gnome | gnome | GNOME settings for all users (dconf system defaults and locks) |
 | ansible-role-btrbk | btrbk | btrbk snapshots/backups with own systemd units |
 

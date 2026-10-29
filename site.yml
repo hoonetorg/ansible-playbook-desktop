@@ -39,6 +39,9 @@
     # AppImages for all users: Signal, Infomaniak kDrive/kChat/kMeet (replaces ansible-role-ksuite, same files)
     - role: ansible-role-appimage
       tags: [appimage]
+    # after ansible-role-user (homes exist): Evolution and/or Thunderbird with the same accounts for named users
+    - role: ansible-role-mailclient
+      tags: [mailclient]
     # after ansible-role-software (GNOME and dconf installed)
     - role: ansible-role-gnome
       tags: [gnome]
